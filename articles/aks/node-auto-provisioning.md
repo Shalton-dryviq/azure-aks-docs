@@ -4,7 +4,7 @@ description: Learn about node auto-provisioning in AKS, including how it works, 
 ms.topic: overview
 ms.service: azure-kubernetes-service
 ms.custom: devx-track-azurecli
-ms.date: 2/15/2026
+ms.date: 11/22/2026
 ms.author: wilsondarko
 author: wdarko1
 # Customer intent: As a cluster operator or developer, I want to automatically provision and manage the optimal VM configuration for my AKS workloads, so that I can efficiently scale my cluster while minimizing resource costs and complexities.
@@ -76,7 +76,7 @@ To use node auto-provisioning in AKS, you need the following prerequisites:
 The following limitations and unsupported features apply to node auto-provisioning in AKS:
 
 - Windows node pools aren't supported.
-- IPv6 clusters aren't supported.
+- IPv4/IPv6 dual-stack networking with NAP is in preview. Single-stack IPv6 clusters aren't supported, and node public IPs on NAP-provisioned nodes aren't supported in dual-stack clusters. For more information, see [Dual-stack networking considerations for NAP (Preview)](./node-auto-provisioning-networking.md#dual-stack-networking-considerations-for-nap-preview).
 - [Service principals](./kubernetes-service-principal.md) aren't supported. You can use either a system-assigned or user-assigned managed identity.
 - You can't [stop a cluster](./start-stop-cluster.md) enabled with NAP.
 - You can't change the [cluster egress outbound type](./egress-outboundtype.md) after you create a cluster enabled with NAP.
