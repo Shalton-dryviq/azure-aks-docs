@@ -110,8 +110,11 @@ When you're planning your network configuration for AKS, keep these requirements
     | `192.0.2.0/24` | Kubernetes service, pod, and cluster virtual network address ranges | All AKS clusters |
     | `172.30.0.0/16` | Kubernetes service, pod, and cluster virtual network address ranges | All AKS clusters |
     | `172.31.0.0/16` | Kubernetes service, pod, and cluster virtual network address ranges | All AKS clusters |
+    | `224.0.0.0/4` | Kubernetes service, pod, and cluster virtual network address ranges | All AKS clusters |
 
     AKS rejects pod CIDRs that overlap a reserved range during cluster creation or update. For example, `172.16.0.0/12` isn't valid because the range includes `172.30.0.0/16` and `172.31.0.0/16`.
+
+    AKS validates the address prefix of each subnet that you assign to a node pool. A subnet that overlaps a reserved range is rejected when you create the cluster, with a `SubnetCidrOverlapping` error that targets `agentPoolProfile.vnetSubnetID`. A cluster virtual network can keep an address space that overlaps a reserved range, as long as every subnet that you assign to AKS avoids the reserved ranges.
 
 - In scenarios where you bring your own virtual network, the cluster identity that the AKS cluster uses must have at least [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) permissions on the subnet within your virtual network.
 - If you define a [custom role](/azure/role-based-access-control/custom-roles) instead of using the built-in Network Contributor role, include the following permissions:
