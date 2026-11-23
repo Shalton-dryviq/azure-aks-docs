@@ -1,8 +1,8 @@
 ---
-title: Configure pod eviction for freeze events in Azure Kubernetes Service (AKS) (preview)
+title: Configure pod eviction for freeze events in Azure Kubernetes Service (AKS)
 description: Learn how to configure AKS node auto-drain to evict specific pods before freeze events occur on underlying virtual machines.
 ms.topic: how-to
-ms.date: 03/30/2026
+ms.date: 11/18/2026
 author: varora24
 ms.author: vaibhavarora
 ai-usage: ai-assisted
@@ -10,9 +10,7 @@ ai-usage: ai-assisted
 # Customer intent: As a cluster operator, I want to evict sensitive pods before freeze events so that I can protect workloads that can't tolerate brief node disruptions.
 ---
 
-# Configure pod eviction for freeze events in Azure Kubernetes Service (AKS) (preview)
-
-[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
+# Configure pod eviction for freeze events in Azure Kubernetes Service (AKS)
 
 [Node auto-drain](./node-auto-drain.md) helps protect your workloads from disruptions when [scheduled events][scheduled-events] occur on the underlying virtual machines (VMs) in your node pools. By default, freeze events don't trigger cordon and drain because they usually pause a node only briefly. If you have workloads that can't tolerate short disruptions, you can opt in to evict labeled pods before the freeze begins.
 
